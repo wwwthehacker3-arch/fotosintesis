@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Keajaiban Fotosintesis - IPAS Kelas 4</title>
+    
+    <!-- Memuat Tailwind CSS untuk styling responsif dan modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi Tema Warna Tailwind (Hijau Islami & Emas) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'islamic-green': '#059669', // Emerald 600
+                        'islamic-green-dark': '#047857', // Emerald 700
+                        'gold-elegant': '#F59E0B', // Amber 500
+                        'gold-light': '#FDE68A', // Amber 200
+                        'bg-soft': '#F8FAFC' // Slate 50
+                    },
+                    fontFamily: {
+                        sans: ['"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animasi kustom untuk interaktivitas */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pop {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pop { animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .pulse-gold { animation: pulse-glow 2s infinite; }
+        
+        @keyframes walkRight {
+            0% { left: -20%; transform: translateY(0) rotate(-5deg); }
+            25% { transform: translateY(-5px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(-5deg); }
+            75% { transform: translateY(-5px) rotate(5deg); }
+            100% { left: 120%; transform: translateY(0) rotate(-5deg); }
+        }
+        
+        .animate-walk {
+            position: absolute;
+            animation: walkRight 8s linear infinite;
+        }
+        
+        /* Menyembunyikan scrollbar agar tampilan seperti aplikasi mobile */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #059669; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #047857; }
+
+        .module-section { display: none; }
+        .module-section.active { display: block; animation: pop 0.5s ease-out; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased text-gray-800">
+
+    <!-- Container Utama: Menyerupai ukuran layar HP/Tablet -->
+    <div class="max-w-md mx-auto bg-bg-soft min-h-screen relative shadow-2xl overflow-hidden flex flex-col">
+        
+        <div id="splash-screen" class="absolute inset-0 bg-islamic-green z-50 flex flex-col items-center justify-center text-white transition-opacity duration-700">
+            <div class="text-8xl mb-4 animate-float">🌽</div>
+            <h1 class="text-3xl font-bold mb-2 tracking-wide">MPI IPAS</h1>
+            <p class="text-gold-light font-medium">Keajaiban Fotosintesis</p>
+            <div class="mt-10 flex space-x-2">
+                <div class="w-3 h-3 bg-white rounded-full animate-bounce"></div>
+                <div class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="bg-islamic-green text-white p-4 shadow-md rounded-b-2xl z-10 relative">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-xl font-bold">IPAS Fase B</h1>
+                    <p class="text-sm text-gold-light">MI Kelas IV - Gorontalo</p>
+                </div>
+                <div class="bg-white text-islamic-green p-2 rounded-full shadow-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <!-- Area Konten Utama -->
+        <main class="flex-1 overflow-y-auto p-4 transition-all" id="main-content">
+            
+            <section id="mod-cover" class="module-section active text-center py-6 flex flex-col justify-center min-h-full">
+                <div class="text-6xl mb-6 animate-pop">🕌</div>
+                <h2 class="text-3xl font-black text-islamic-green-dark mb-2">Jelajah IPAS</h2>
+                <p class="text-gray-600 mb-8 px-2 font-medium">Media Pembelajaran Interaktif Fase B MI Kelas IV - Gorontalo</p>
+                
+                <div class="space-y-4 px-2 w-full max-w-sm mx-auto">
+                    <button onclick="navTo('mod-beranda')" class="w-full bg-gold-elegant hover:bg-yellow-400 text-white font-bold py-4 rounded-xl shadow-md transition-all active:scale-95 text-xl pulse-gold flex justify-center items-center gap-2">
+                        Mulai Belajar <span>🚀</span>
+                    </button>
+                    
+                    <div class="grid grid-cols-2 gap-3 mt-4">
+                        <button onclick="navTo('mod-tujuan')" class="bg-white border-2 border-islamic-green text-islamic-green hover:bg-green-50 font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 flex flex-col items-center justify-center">
+                            <span class="text-2xl mb-1">🎯</span> <span class="text-sm">Tujuan Belajar</span>
+                        </button>
+                        <button onclick="navTo('mod-pengembang')" class="bg-white border-2 border-islamic-green text-islamic-green hover:bg-green-50 font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 flex flex-col items-center justify-center">
+                            <span class="text-2xl mb-1">👨‍💻</span> <span class="text-sm">Pengembang</span>
+                        </button>
+                        <button onclick="navTo('mod-referensi')" class="col-span-2 bg-white border-2 border-islamic-green text-islamic-green hover:bg-green-50 font-bold py-3 rounded-xl shadow-sm transition-all active:scale-95 flex justify-center items-center gap-2">
+                            <span class="text-2xl">📚</span> <span class="text-sm">Referensi & Sumber</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mod-tujuan" class="module-section relative min-h-full">
+                <button onclick="navTo('mod-cover')" class="absolute top-0 left-0 text-islamic-green font-bold flex items-center gap-1 active:scale-95 bg-white px-3 py-1 rounded-lg shadow-sm border border-gray-200">
+                    <span>⬅️</span> Kembali
+                </button>
+                <div class="pt-12 text-center mb-6">
+                    <div class="text-5xl mb-3">🎯</div>
+                    <h2 class="text-2xl font-bold text-islamic-green-dark">Tujuan Pembelajaran</h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-5 border-l-4 border-gold-elegant mb-6">
+                    <ul class="space-y-4 text-sm text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-gold-elegant mr-3 text-lg">1.</span>
+                            <span>Peserta didik dapat <strong>memahami proses fotosintesis</strong> pada tumbuhan sebagai cara tumbuhan bertahan hidup dan berkembang.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-elegant mr-3 text-lg">2.</span>
+                            <span>Peserta didik dapat <strong>menjelaskan perubahan bentuk energi</strong> (dari energi cahaya menjadi energi kimia/makanan) dengan benar.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-elegant mr-3 text-lg">3.</span>
+                            <span>Peserta didik dapat <strong>mensyukuri keajaiban alam</strong> ciptaan Allah SWT dengan cara merawat dan melestarikan tumbuhan di sekitarnya.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="mod-pengembang" class="module-section relative min-h-full">
+                <button onclick="navTo('mod-cover')" class="absolute top-0 left-0 text-islamic-green font-bold flex items-center gap-1 active:scale-95 bg-white px-3 py-1 rounded-lg shadow-sm border border-gray-200">
+                    <span>⬅️</span> Kembali
+                </button>
+                <div class="pt-12 text-center mb-6">
+                    <div class="text-5xl mb-3">👨‍💻</div>
+                    <h2 class="text-2xl font-bold text-islamic-green-dark">Informasi Pengembang</h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-6 text-center border-t-4 border-islamic-green mb-6">
+                    <div class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 border-4 border-gold-light overflow-hidden flex items-center justify-center text-4xl">
+                        🧑‍🏫
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800">Nama Pengembang</h3>
+                    <p class="text-islamic-green text-sm mb-4">Guru IPAS / Instructional Designer</p>
+                    <div class="bg-gray-50 rounded-xl p-3 text-xs text-gray-600 text-left space-y-2">
+                        <p><strong>Instansi:</strong> Kanwil Kemenag Prov. Gorontalo</p>
+                        <p><strong>Saran / Masukan:</strong> email@madrasah.go.id</p>
+                        <p><strong>Versi:</strong> 1.0 (Offline Mode)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mod-referensi" class="module-section relative min-h-full">
+                <button onclick="navTo('mod-cover')" class="absolute top-0 left-0 text-islamic-green font-bold flex items-center gap-1 active:scale-95 bg-white px-3 py-1 rounded-lg shadow-sm border border-gray-200">
+                    <span>⬅️</span> Kembali
+                </button>
+                <div class="pt-12 text-center mb-6">
+                    <div class="text-5xl mb-3">📚</div>
+                    <h2 class="text-2xl font-bold text-islamic-green-dark">Referensi Materi</h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md p-5 border-l-4 border-blue-400 mb-6 space-y-3 text-sm text-gray-700">
+                    <div class="p-3 bg-blue-50 rounded-lg">
+                        <p class="font-bold">Buku Siswa IPAS Kelas IV</p>
+                        <p class="text-xs text-gray-500">Pusat Kurikulum dan Perbukuan, Kemendikbudristek.</p>
+                    </div>
+                    <div class="p-3 bg-blue-50 rounded-lg">
+                        <p class="font-bold">Modul Ajar MI Gorontalo</p>
+                        <p class="text-xs text-gray-500">Adaptasi lingkungan agraris (Perkebunan Jagung Tolangohula).</p>
+                    </div>
+                    <div class="p-3 bg-blue-50 rounded-lg">
+                        <p class="font-bold">Aset Visual & Teknologi</p>
+                        <p class="text-xs text-gray-500">HTML5, Tailwind CSS, Font Inter.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODULE 1: BERANDA -->
+            <section id="mod-beranda" class="module-section">
+                        <span class="text-5xl mb-2">✨</span>
+                        <h3 class="font-bold text-islamic-green-dark text-lg">Fotosintesis Berhasil!</h3>
+                        <p class="text-sm text-gray-700 mt-2">Energi Cahaya ➡️ Energi Kimia.</p>
+                        <p class="text-xs text-gray-500 mt-1">Menghasilkan Glukosa (makanan) dan Oksigen yang kita hirup.</p>
+                        <button onclick="resetSimulasi()" class="mt-4 px-4 py-2 bg-gold-elegant text-white rounded-lg font-bold text-sm">Coba Lagi</button>
+                    </div>
+                </div>
+
+                <!-- Tombol Kontrol -->
+                <div class="grid grid-cols-1 gap-3 mb-6">
+                    <button id="btn-sun" onclick="toggleSim('sun')" class="bg-white border-2 border-gray-200 p-3 rounded-xl flex items-center justify-between font-bold text-gray-600 transition-all active:scale-95 shadow-sm">
+                        <span>1. Berikan Cahaya Matahari</span> <span class="text-2xl">☀️</span>
+                    </button>
+                    <button id="btn-water" onclick="toggleSim('water')" class="bg-white border-2 border-gray-200 p-3 rounded-xl flex items-center justify-between font-bold text-gray-600 transition-all active:scale-95 shadow-sm">
+                        <span>2. Sirami dengan Air</span> <span class="text-2xl">💧</span>
+                    </button>
+                    <button id="btn-co2" onclick="toggleSim('co2')" class="bg-white border-2 border-gray-200 p-3 rounded-xl flex items-center justify-between font-bold text-gray-600 transition-all active:scale-95 shadow-sm">
+                        <span>3. Berikan Udara (CO₂)</span> <span class="text-2xl">💨</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- MODULE 4: KUIS EVALUASI -->
+            <section id="mod-kuis" class="module-section">
+                <div id="quiz-intro">
+                    <h2 class="text-2xl font-bold text-islamic-green-dark mb-4 text-center">Tantangan Pengetahuan</h2>
+                    <div class="bg-white p-6 rounded-2xl shadow-md text-center">
+                        <div class="text-5xl mb-4">🏆</div>
+                        <p class="text-gray-700 mb-6">Uji pemahamanmu tentang keajaiban fotosintesis. Ada 5 pertanyaan yang menunggu!</p>
+                        
+                        <div class="mb-6 text-left space-y-3 bg-green-50 p-4 rounded-xl border border-green-200">
+                            <h3 class="font-bold text-islamic-green-dark text-sm">Isi Identitas Dulu Yuk!</h3>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-600 mb-1">Nama Lengkap</label>
+                                <input type="text" id="input-nama" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-islamic-green outline-none" placeholder="Contoh: Budi Santoso">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-600 mb-1">Kelas</label>
+                                <input type="text" id="input-kelas" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-islamic-green outline-none" placeholder="Contoh: IV A">
+                            </div>
+                            <p id="login-error" class="text-red-500 text-xs hidden font-bold">⚠️ Mohon lengkapi Nama dan Kelas terlebih dahulu!</p>
+                        </div>
+
+                        <button onclick="checkIdentityAndStart()" class="w-full bg-islamic-green text-white font-bold py-3 rounded-xl shadow-md active:scale-95 text-lg flex justify-center items-center gap-2">
+                            Mulai Kuis <span id="quiz-loading" class="hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-container" class="hidden">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-bold text-gray-500" id="quiz-progress">Soal 1 / 5</span>
+                        <span class="text-sm font-bold text-gold-elegant bg-yellow-50 px-3 py-1 rounded-full">Skor: <span id="quiz-score-display">0</span></span>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl shadow-md mb-4 relative">
+                        <h3 class="font-bold text-lg text-gray-800 mb-4" id="quiz-question">Pertanyaan di sini?</h3>
+                        
+                        <div id="quiz-options" class="space-y-3">
+                            <!-- Opsi akan di-generate via JS -->
+                        </div>
+
+                        <!-- Area Feedback Real-time -->
+                        <div id="quiz-feedback" class="mt-4 p-4 rounded-xl hidden border-l-4 animate-pop">
+                            <div class="flex items-start gap-3">
+                                <div id="feedback-icon" class="text-2xl"></div>
+                                <div>
+                                    <h4 id="feedback-title" class="font-bold text-sm mb-1"></h4>
+                                    <p id="feedback-text" class="text-sm text-gray-700"></p>
+                                </div>
+                            </div>
+                            <button id="btn-next-q" onclick="nextQuestion()" class="mt-4 w-full bg-gray-800 text-white py-2 rounded-lg font-bold text-sm hidden">Lanjut ke soal berikutnya</button>
+                            <button id="btn-finish-q" onclick="showResult()" class="mt-4 w-full bg-gold-elegant text-white py-2 rounded-lg font-bold text-sm hidden">Lihat Hasil Akhir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="hidden text-center animate-pop">
+                    <h2 class="text-2xl font-bold text-islamic-green-dark mb-2">Alhamdulillah!</h2>
+                    <p class="text-gray-600 mb-6">Kamu telah menyelesaikan tantangan ini.</p>
+                    
+                    <div class="bg-white p-6 rounded-2xl shadow-md border-t-4 border-gold-elegant mb-6 relative">
+                        <div id="save-status" class="absolute top-2 right-2 text-xs font-bold px-2 py-1 rounded-md bg-yellow-100 text-yellow-700 flex items-center gap-1 hidden">
+                            <span class="animate-spin h-3 w-3 border-2 border-yellow-700 border-t-transparent rounded-full"></span> Menyimpan...
+                        </div>
+
+                        <div class="text-6xl mb-2" id="result-emoji">🌟</div>
+                        <h3 class="text-4xl font-black text-islamic-green mb-2" id="final-score">100</h3>
+                        <p class="font-bold text-gray-700" id="result-message">Luar Biasa!</p>
+                    </div>
+
+                    <button onclick="navTo('mod-beranda')" class="w-full bg-gray-200 text-gray-800 font-bold py-3 rounded-xl shadow-sm active:scale-95">Kembali ke Beranda</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Navigasi Bawah (Bottom Tab Bar) -->
+    <nav id="bottom-nav" class="bg-white border-t border-gray-200 absolute bottom-0 w-full z-20 hidden">
+        <div class="flex justify-around items-center p-2">
+            <button onclick="navTo('mod-beranda')" class="nav-btn flex flex-col items-center p-2 text-islamic-green w-1/4" data-target="mod-beranda">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                    <span class="text-xs font-bold">Beranda</span>
+                </button>
+                <button onclick="navTo('mod-materi')" class="nav-btn flex flex-col items-center p-2 text-gray-400 hover:text-islamic-green transition w-1/4" data-target="mod-materi">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                    <span class="text-xs font-bold">Materi</span>
+                </button>
+                <button onclick="navTo('mod-simulasi')" class="nav-btn flex flex-col items-center p-2 text-gray-400 hover:text-islamic-green transition w-1/4" data-target="mod-simulasi">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                    <span class="text-xs font-bold">Simulasi</span>
+                </button>
+                <button onclick="navTo('mod-kuis')" class="nav-btn flex flex-col items-center p-2 text-gray-400 hover:text-islamic-green transition w-1/4" data-target="mod-kuis">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                    <span class="text-xs font-bold">Kuis</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            const splash = document.getElementById('splash-screen');
+            if (splash) {
+                splash.style.opacity = '0';
+                setTimeout(() => { 
+                    splash.style.display = 'none'; 
+                }, 700); // Menunggu animasi transisi selesai
+            }
+        }, 2000); // Tampilkan splash screen selama 2 detik
+    });
+
+    // --- SISTEM NAVIGASI ---
+    function navTo(moduleId) {
+        // Sembunyikan semua modul
+        document.querySelectorAll('.module-section').forEach(el => {
+            el.classList.remove('active');
+        });
+        // Tampilkan modul yang dituju
+        document.getElementById(moduleId).classList.add('active');
+
+        // Atur tampilan Bottom Nav dan padding konten
+        const bottomNav = document.getElementById('bottom-nav');
+        const mainContent = document.getElementById('main-content');
+        
+        // Daftar modul yang tidak memerlukan bottom nav (Halaman Menu Cover & Info)
+        const noBottomNavModules = ['mod-cover', 'mod-tujuan', 'mod-pengembang', 'mod-referensi'];
+        
+        if (noBottomNavModules.includes(moduleId)) {
+            bottomNav.classList.add('hidden');
+            mainContent.classList.remove('pb-24');
+        } else {
+            bottomNav.classList.remove('hidden');
+            mainContent.classList.add('pb-24');
+        }
+
+        // Update UI Tab Bawah (Hanya jika bukan di cover/info)
+        if (!noBottomNavModules.includes(moduleId)) {
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.target === moduleId) {
+                    btn.classList.add('text-islamic-green');
+                    btn.classList.remove('text-gray-400');
+                } else {
+                    btn.classList.remove('text-islamic-green');
+                    btn.classList.add('text-gray-400');
+                }
+            });
+        }
+
+        // Scroll ke atas
+        document.getElementById('main-content').scrollTop = 0;
+        
+        // Reset state jika perlu
+        if(moduleId === 'mod-simulasi') resetSimulasi();
+    }
+
+        // --- SISTEM SIMULASI ---
+        let simState = { sun: false, water: false, co2: false };
+
+        function toggleSim(type) {
+            simState[type] = !simState[type];
+            
+            const btn = document.getElementById(`btn-${type}`);
+            const elMap = {
+                'sun': document.getElementById('sim-sun'),
+                'water': document.getElementById('sim-water'),
+                'co2': document.getElementById('sim-co2')
+            };
+
+            if(simState[type]) {
+                // Aktifkan visual
+                btn.classList.replace('border-gray-200', 'border-islamic-green');
+                btn.classList.replace('text-gray-600', 'text-islamic-green-dark');
+                btn.classList.add('bg-green-50');
+                
+                if(type === 'sun') { elMap[type].style.opacity = '1'; elMap[type].style.transform = 'scale(1.5)'; }
+                if(type === 'co2') { elMap[type].style.opacity = '1'; elMap[type].style.transform = 'scale(1)'; }
+                if(type === 'water') { elMap[type].style.opacity = '0.8'; elMap[type].style.transform = 'translateY(0)'; }
+            } else {
+                // Nonaktifkan visual
+                btn.classList.replace('border-islamic-green', 'border-gray-200');
+                btn.classList.replace('text-islamic-green-dark', 'text-gray-600');
+                btn.classList.remove('bg-green-50');
+                
+                if(type === 'sun') { elMap[type].style.opacity = '0.2'; elMap[type].style.transform = 'scale(0.5)'; }
+                if(type === 'co2') { elMap[type].style.opacity = '0.2'; elMap[type].style.transform = 'scale(0.5)'; }
+                if(type === 'water') { elMap[type].style.opacity = '0.2'; elMap[type].style.transform = 'translateY(100%)'; }
+            }
+
+            cekHasilSimulasi();
+        }
+
+        function cekHasilSimulasi() {
+            if(simState.sun && simState.water && simState.co2) {
+                setTimeout(() => {
+                    document.getElementById('sim-result').classList.remove('hidden');
+                }, 800);
+            }
+        }
+
+        function resetSimulasi() {
+            simState = { sun: false, water: false, co2: false };
+            ['sun', 'water', 'co2'].forEach(type => {
+                const btn = document.getElementById(`btn-${type}`);
+                btn.classList.remove('border-islamic-green', 'text-islamic-green-dark', 'bg-green-50');
+                btn.classList.add('border-gray-200', 'text-gray-600');
+            });
+            
+            document.getElementById('sim-sun').style.cssText = "opacity: 0.2; transform: scale(0.5)";
+            document.getElementById('sim-co2').style.cssText = "opacity: 0.2; transform: scale(0.5)";
+            document.getElementById('sim-water').style.cssText = "opacity: 0.2; transform: translateY(100%)";
+            
+            document.getElementById('sim-result').classList.add('hidden');
+        }
+
+        // --- SISTEM KUIS EVALUASI ---
+        
+        // KONFIGURASI GOOGLE APPS SCRIPT (GAS)
+        // Ganti URL di bawah ini dengan URL Web App GAS Anda setelah di-deploy
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwqllhfz6mGLEe13TX8QfpLJQK-S_8aakEtqyWRRCYV_lXqb4pRKQ85dLaxSaWZzI_NpA/exec"; 
+
+        let bankSoal = [
+            {
+                q: "Energi apa yang digunakan oleh tumbuhan jagung di ladang untuk memulai proses fotosintesis?",
+                opts: ["Energi Angin", "Energi Cahaya Matahari", "Energi Suara"],
+                ans: 1,
+                reason: "Benar! Matahari adalah sumber energi utama. Tumbuhan menangkap cahaya matahari menggunakan zat hijau daun (klorofil) untuk mulai memasak makanannya."
+            },
+            {
+                q: "Melalui fotosintesis, energi cahaya matahari diubah oleh tumbuhan jagung menjadi energi...",
+                opts: ["Energi Kimia (Makanan)", "Energi Listrik", "Energi Gerak"],
+                ans: 0,
+                reason: "Tepat sekali! Energi cahaya disimpan dalam bentuk glukosa atau gula. Ini disebut Energi Kimia, yang membuat jagung menjadi manis dan bergizi."
+            },
+            {
+                q: "Bahan apa yang diambil tumbuhan jagung dari dalam tanah menggunakan akarnya?",
+                opts: ["Karbon Dioksida", "Cahaya", "Air dan Mineral"],
+                ans: 2,
+                reason: "Bagus! Akar bertugas menyerap Air dari dalam tanah, yang kemudian diangkut naik ke daun untuk bahan fotosintesis."
+            },
+            {
+                q: "Selain menghasilkan makanan, fotosintesis juga menghasilkan gas penting yang kita hirup setiap hari. Gas apakah itu?",
+                opts: ["Karbon Dioksida", "Oksigen", "Asap"],
+                ans: 1,
+                reason: "Sempurna! Tumbuhan melepaskan Oksigen ke udara. Inilah mengapa kita merasa segar saat berada di kebun jagung."
+            },
+            {
+                q: "Sebagai wujud rasa syukur dan cinta atas ciptaan Allah SWT yang memberikan kita makanan dan udara segar, apa yang sebaiknya kita lakukan?",
+                opts: ["Memetik daunnya untuk mainan", "Menyiram dan menjaga kelestarian tanaman", "Membuang sampah di dekat tanaman"],
+                ans: 1,
+                reason: "Masya Allah, jawaban yang indah! Menjaga dan merawat tanaman adalah wujud nyata rasa syukur kita kepada Sang Pencipta alam semesta."
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+        let isAnswered = false;
+        
+        // Variabel tambahan untuk Database
+        let studentName = "";
+        let studentClass = "";
+        let detailJawabanSiswa = [];
+        let totalBenar = 0;
+        let totalSalah = 0;
+
+        async function checkIdentityAndStart() {
+            const namaInput = document.getElementById('input-nama').value.trim();
+            const kelasInput = document.getElementById('input-kelas').value.trim();
+            
+            if(!namaInput || !kelasInput) {
+                document.getElementById('login-error').classList.remove('hidden');
+                return;
+            }
+            document.getElementById('login-error').classList.add('hidden');
+
+            studentName = namaInput;
+            studentClass = kelasInput;
+            
+            const btnLoading = document.getElementById('quiz-loading');
+            btnLoading.classList.remove('hidden');
+            
+            // Ambil soal dari database Spreadsheet jika URL tersedia
+            if(GAS_URL !== "") {
+                try {
+                    const response = await fetch(GAS_URL);
+                    const result = await response.json();
+                    if(result.status === "success" && result.data.length > 0) {
+                        bankSoal = result.data; // Timpa soal lokal dengan soal dari Google Sheets
+                    }
+                } catch (error) {
+                    console.log("Menggunakan bank soal offline karena gagal terhubung ke server database.");
+                }
+            }
+
+            btnLoading.classList.add('hidden');
+            startQuiz();
+        }
+
+        // Fungsi startQuiz yang sebelumnya dipanggil langsung oleh tombol, kini dipanggil setelah checkIdentity
+        function startQuiz() {
+            document.getElementById('quiz-intro').classList.add('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            currentQ = 0;
+            score = 0;
+            totalBenar = 0;
+            totalSalah = 0;
+            detailJawabanSiswa = [];
+            updateScoreDisplay();
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isAnswered = false;
+            const qData = bankSoal[currentQ];
+            document.getElementById('quiz-progress').innerText = `Soal ${currentQ + 1} / ${bankSoal.length}`;
+            document.getElementById('quiz-question').innerText = qData.q;
+            
+            const optsContainer = document.getElementById('quiz-options');
+            optsContainer.innerHTML = '';
+            
+            qData.opts.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full text-left p-4 rounded-xl border-2 border-gray-200 font-medium text-gray-700 hover:bg-gray-50 transition-all shadow-sm';
+                btn.innerText = opt;
+                btn.onclick = () => selectAnswer(index, btn);
+                optsContainer.appendChild(btn);
+            });
+
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('btn-next-q').classList.add('hidden');
+            document.getElementById('btn-finish-q').classList.add('hidden');
+        }
+
+        function selectAnswer(index, btnElement) {
+            if(isAnswered) return;
+            isAnswered = true;
+            
+            const qData = bankSoal[currentQ];
+            const isCorrect = (index === qData.ans);
+            
+            const allBtns = document.getElementById('quiz-options').children;
+            for(let btn of allBtns) {
+                btn.disabled = true;
+                btn.classList.add('opacity-50');
+            }
+
+            const feedbackEl = document.getElementById('quiz-feedback');
+            const fbIcon = document.getElementById('feedback-icon');
+            const fbTitle = document.getElementById('feedback-title');
+            const fbText = document.getElementById('feedback-text');
+
+            feedbackEl.classList.remove('hidden', 'bg-green-50', 'bg-red-50', 'border-green-500', 'border-red-500');
+
+            let userSelectedText = btnElement.innerText;
+
+            if(isCorrect) {
+                score += (100 / bankSoal.length); // Hitung skor otomatis berdasarkan jumlah soal
+                totalBenar++;
+                updateScoreDisplay();
+                btnElement.classList.replace('border-gray-200', 'border-green-500');
+                btnElement.classList.replace('text-gray-700', 'text-green-800');
+                btnElement.classList.add('bg-green-100', 'opacity-100');
+                
+                feedbackEl.classList.add('bg-green-50', 'border-green-500');
+                fbIcon.innerText = "✅";
+                fbTitle.innerText = "Hebat! Jawabanmu Benar.";
+                fbTitle.className = "font-bold text-sm mb-1 text-green-800";
+            } else {
+                btnElement.classList.replace('border-gray-200', 'border-red-500');
+                btnElement.classList.replace('text-gray-700', 'text-red-800');
+                btnElement.classList.add('bg-red-100', 'opacity-100');
+
+                // Highlight jawaban benar
+                allBtns[qData.ans].classList.replace('border-gray-200', 'border-green-500');
+                allBtns[qData.ans].classList.add('bg-green-50', 'opacity-100');
+
+                feedbackEl.classList.add('bg-red-50', 'border-red-500');
+                fbIcon.innerText = "💡";
+                fbTitle.innerText = "Yuk, pelajari lagi!";
+                fbTitle.className = "font-bold text-sm mb-1 text-red-800";
+            }
+
+            // Merekam pilihan siswa untuk dikirim ke Spreadsheet Guru
+            detailJawabanSiswa.push({
+                soal: qData.q,
+                jawabanSiswa: userSelectedText,
+                status: isCorrect ? "Benar" : "Salah"
+            });
+
+            fbText.innerText = qData.reason;
+
+            if(currentQ < bankSoal.length - 1) {
+                document.getElementById('btn-next-q').classList.remove('hidden');
+            } else {
+                document.getElementById('btn-finish-q').classList.remove('hidden');
+            }
+        }
+
+        function updateScoreDisplay() {
+            document.getElementById('quiz-score-display').innerText = score;
+        }
+
+        function nextQuestion() {
+            currentQ++;
+            renderQuestion();
+        }
+
+        async function showResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            
+            score = Math.round(score); // Bulatkan nilai
+            document.getElementById('final-score').innerText = score;
+            
+            let msg = "";
+            let emoji = "";
+            if(score === 100) { msg = "Masya Allah, Sempurna!"; emoji = "🏆"; }
+            else if(score >= 80) { msg = "Hebat Sekali!"; emoji = "🌟"; }
+            else if(score >= 60) { msg = "Bagus, terus belajar ya!"; emoji = "👍"; }
+            else { msg = "Jangan menyerah, ayo baca materinya lagi!"; emoji = "💪"; }
+            
+            document.getElementById('result-message').innerText = msg;
+            document.getElementById('result-emoji').innerText = emoji;
+            
+            // --- PROSES SIMPAN KE DATABASE SPREADSHEET ---
+            const saveStatusEl = document.getElementById('save-status');
+            
+            if(GAS_URL !== "") {
+                saveStatusEl.classList.remove('hidden');
+                saveStatusEl.className = "absolute top-2 right-2 text-xs font-bold px-2 py-1 rounded-md bg-yellow-100 text-yellow-700 flex items-center gap-1";
+                saveStatusEl.innerHTML = `<span class="animate-spin h-3 w-3 border-2 border-yellow-700 border-t-transparent rounded-full"></span> Menyimpan...`;
+                
+                const payload = {
+                    nama: studentName,
+                    kelas: studentClass,
+                    skor: score,
+                    benar: totalBenar,
+                    salah: totalSalah,
+                    detailJawaban: detailJawabanSiswa
+                };
+
+                try {
+                    // Mengirim data menggunakan x-www-form-urlencoded untuk menghindari error CORS preflight
+                    await fetch(GAS_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams({ data: JSON.stringify(payload) })
+                    });
+                    
+                    saveStatusEl.className = "absolute top-2 right-2 text-xs font-bold px-2 py-1 rounded-md bg-green-100 text-green-700 flex items-center gap-1";
+                    saveStatusEl.innerHTML = `✅ Tersimpan`;
+                } catch (error) {
+                    saveStatusEl.className = "absolute top-2 right-2 text-xs font-bold px-2 py-1 rounded-md bg-red-100 text-red-700 flex items-center gap-1";
+                    saveStatusEl.innerHTML = `⚠️ Gagal Simpan`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
